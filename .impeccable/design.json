@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T22:00:00Z",
+  "title": "Design System: Aaron & Riley's States",
+  "extensions": {
+    "colorMeta": {
+      "asphalt": { "role": "neutral", "displayName": "Asphalt", "canonical": "oklch(19.0% 0.007 258)", "tonalRamp": ["oklch(15% 0.007 258)", "oklch(26% 0.007 258)", "oklch(38% 0.007 258)", "oklch(49% 0.007 258)", "oklch(61% 0.007 258)", "oklch(72% 0.007 258)", "oklch(84% 0.007 258)", "oklch(95% 0.007 258)"] },
+      "sign-blank": { "role": "neutral", "displayName": "Sign Blank", "canonical": "oklch(25.3% 0.012 248)", "tonalRamp": ["oklch(15% 0.012 248)", "oklch(26% 0.012 248)", "oklch(38% 0.012 248)", "oklch(49% 0.012 248)", "oklch(61% 0.012 248)", "oklch(72% 0.012 248)", "oklch(84% 0.012 248)", "oklch(95% 0.012 248)"] },
+      "blank-border": { "role": "neutral", "displayName": "Blank Border", "canonical": "oklch(50.2% 0.017 245)", "tonalRamp": ["oklch(15% 0.017 245)", "oklch(26% 0.017 245)", "oklch(38% 0.017 245)", "oklch(49% 0.017 245)", "oklch(61% 0.017 245)", "oklch(72% 0.017 245)", "oklch(84% 0.017 245)", "oklch(95% 0.017 245)"] },
+      "blank-label": { "role": "neutral", "displayName": "Blank Label", "canonical": "oklch(71.4% 0.017 245)", "tonalRamp": ["oklch(15% 0.017 245)", "oklch(26% 0.017 245)", "oklch(38% 0.017 245)", "oklch(49% 0.017 245)", "oklch(61% 0.017 245)", "oklch(72% 0.017 245)", "oklch(84% 0.017 245)", "oklch(95% 0.017 245)"] },
+      "highway-green": { "role": "primary", "displayName": "Highway Green", "canonical": "oklch(46.5% 0.114 154)", "tonalRamp": ["oklch(15% 0.114 154)", "oklch(26% 0.114 154)", "oklch(38% 0.114 154)", "oklch(49% 0.114 154)", "oklch(61% 0.114 154)", "oklch(72% 0.114 154)", "oklch(84% 0.114 154)", "oklch(95% 0.114 154)"] },
+      "green-deep": { "role": "primary", "displayName": "Green Deep", "canonical": "oklch(39.4% 0.092 156)", "tonalRamp": ["oklch(15% 0.092 156)", "oklch(26% 0.092 156)", "oklch(38% 0.092 156)", "oklch(49% 0.092 156)", "oklch(61% 0.092 156)", "oklch(72% 0.092 156)", "oklch(84% 0.092 156)", "oklch(95% 0.092 156)"] },
+      "green-hover": { "role": "primary", "displayName": "Green Hover", "canonical": "#0a5f34" },
+      "green-dim": { "role": "primary", "displayName": "Green Dim", "canonical": "oklch(90.8% 0.033 159)", "tonalRamp": ["oklch(15% 0.033 159)", "oklch(26% 0.033 159)", "oklch(38% 0.033 159)", "oklch(49% 0.033 159)", "oklch(61% 0.033 159)", "oklch(72% 0.033 159)", "oklch(84% 0.033 159)", "oklch(95% 0.033 159)"] },
+      "interstate-blue": { "role": "secondary", "displayName": "Interstate Blue", "canonical": "oklch(38.0% 0.134 257)", "tonalRamp": ["oklch(15% 0.134 257)", "oklch(26% 0.134 257)", "oklch(38% 0.134 257)", "oklch(49% 0.134 257)", "oklch(61% 0.134 257)", "oklch(72% 0.134 257)", "oklch(84% 0.134 257)", "oklch(95% 0.134 257)"] },
+      "interstate-red": { "role": "secondary", "displayName": "Interstate Red", "canonical": "oklch(49.0% 0.178 22)", "tonalRamp": ["oklch(15% 0.178 22)", "oklch(26% 0.178 22)", "oklch(38% 0.178 22)", "oklch(49% 0.178 22)", "oklch(61% 0.178 22)", "oklch(72% 0.178 22)", "oklch(84% 0.178 22)", "oklch(95% 0.178 22)"] },
+      "retro-white": { "role": "secondary", "displayName": "Retroreflective White", "canonical": "oklch(97.1% 0.004 135)", "tonalRamp": ["oklch(15% 0.004 135)", "oklch(26% 0.004 135)", "oklch(38% 0.004 135)", "oklch(49% 0.004 135)", "oklch(61% 0.004 135)", "oklch(72% 0.004 135)", "oklch(84% 0.004 135)", "oklch(95% 0.004 135)"] },
+      "highway-yellow": { "role": "tertiary", "displayName": "Highway Yellow", "canonical": "oklch(86.7% 0.177 91)", "tonalRamp": ["oklch(15% 0.177 91)", "oklch(26% 0.177 91)", "oklch(38% 0.177 91)", "oklch(49% 0.177 91)", "oklch(61% 0.177 91)", "oklch(72% 0.177 91)", "oklch(84% 0.177 91)", "oklch(95% 0.177 91)"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(19.0% 0.007 258)", "tonalRamp": ["oklch(15% 0.007 258)", "oklch(26% 0.007 258)", "oklch(38% 0.007 258)", "oklch(49% 0.007 258)", "oklch(61% 0.007 258)", "oklch(72% 0.007 258)", "oklch(84% 0.007 258)", "oklch(95% 0.007 258)"] },
+      "retro-border": { "role": "neutral", "displayName": "Retro Border", "canonical": "rgba(244, 246, 243, 0.92)" },
+      "red-dim": { "role": "secondary", "displayName": "Red Dim", "canonical": "#f8d7db" },
+      "placeholder": { "role": "neutral", "displayName": "Placeholder", "canonical": "#6b7378" },
+      "backdrop": { "role": "neutral", "displayName": "Backdrop", "canonical": "rgba(8, 10, 12, 0.6)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "State name on the welcome sheet; balanced wrap, preceded by the 1.25rem/700 'Welcome to' line." },
+      "headline": { "displayName": "Headline", "purpose": "Login title." },
+      "count": { "displayName": "Count", "purpose": "Legend counts; tabular numerals; trailing 'of 51' at 0.8125rem/600 Green Dim." },
+      "title": { "displayName": "Title", "purpose": "Guide-sign title." },
+      "title-sm": { "displayName": "Title (small)", "purpose": "State name in the last-tapped strip." },
+      "body": { "displayName": "Body", "purpose": "Legend rows, hints, notes rows; emphasis via <strong> in Retro White." },
+      "body-sm": { "displayName": "Body (small)", "purpose": "Strip hint, notes text, error copy." },
+      "label": { "displayName": "Label", "purpose": "Field labels and meta lines in Green Dim." },
+      "legend": { "displayName": "Legend", "purpose": "Two-letter abbreviations on exit tabs." },
+      "map-label": { "displayName": "Map Label", "purpose": "State abbreviations in SVG units: 22px phone, 15px from 700px, 13px from 1200px." }
+    },
+    "shadows": [
+      { "name": "input-ring", "value": "inset 0 0 0 3px var(--white), inset 0 0 0 4.5px var(--ink)", "purpose": "Drawn inset border on white fields (login input, note textarea). Not an elevation; the system has no outer shadows." },
+      { "name": "sheet-backdrop", "value": "rgba(8, 10, 12, 0.6)", "purpose": "Scrim behind the welcome sheet dialog." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing; every transition and keyframe uses it." },
+      { "name": "t-fast", "value": "140ms", "purpose": "Plaque color/transform, state fill and edge color, notes row hover." },
+      { "name": "t-med", "value": "220ms", "purpose": "Sheet rise (translateY 24px to 0, fade in), backdrop fade, map busy opacity." },
+      { "name": "wipe", "value": "360ms, opacity 0.55 to 0, once", "purpose": "Sheeting wipe: a white overlay clipped to the changed state." },
+      { "name": "long-press", "value": "450ms, 10px move tolerance", "purpose": "Hold a state or exit tab to open the welcome sheet; Shift+Enter is the keyboard equivalent." },
+      { "name": "reduced-motion", "value": "transition-duration and animation-duration 0.01ms", "purpose": "prefers-reduced-motion collapses the wipe and the sheet rise to instant swaps." }
+    ],
+    "breakpoints": [
+      { "name": "map-labels-md", "value": "700px" },
+      { "name": "desktop", "value": "900px" },
+      { "name": "map-labels-lg", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Sign",
+      "kind": "card",
+      "refersTo": "sign",
+      "description": "Highway green panel with the inset retroreflective border line; every container in the app.",
+      "html": "<section class=\"ds-sign\"><h2 class=\"ds-sign__title\">Aaron &amp; Riley</h2><p class=\"ds-sign__sub\">States we've been to</p><p class=\"ds-sign__body\"><strong>Tap a state</strong> to light it. Tap again to pass it on. <strong>Hold</strong> for a note.</p></section>",
+      "css": ".ds-sign { position: relative; isolation: isolate; background: var(--green, #0b6b3a); color: var(--green-text, #f4f6f3); border-radius: var(--radius, 10px); padding: 18px 20px 16px; font-family: var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); font-variant-numeric: tabular-nums; max-width: 320px; } .ds-sign::before { content: ''; position: absolute; inset: 6px; border: 2px solid var(--border, rgba(244,246,243,0.92)); border-radius: calc(var(--radius, 10px) - 4px); pointer-events: none; } .ds-sign > * { position: relative; margin: 0; } .ds-sign__title { font-size: 1.375rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.1; } .ds-sign__sub { margin-top: 2px; color: var(--green-dim, #cfe8d9); font-size: 0.875rem; font-weight: 600; } .ds-sign__body { margin-top: 12px; color: var(--green-dim, #cfe8d9); font-size: 0.9375rem; font-weight: 600; line-height: 1.35; } .ds-sign__body strong { color: var(--green-text, #f4f6f3); }"
+    },
+    {
+      "name": "Plaque",
+      "kind": "button",
+      "refersTo": "plaque",
+      "description": "Default control: a small green-deep sign with its own inset line. Hover lightens, press drops 1px.",
+      "html": "<button class=\"ds-plaque\">Exit <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15\"/><path d=\"M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-plaque { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 0; border-radius: var(--radius-sm, 6px); background: var(--green-deep, #085430); color: var(--green-text, #f4f6f3); font: 700 1rem/1 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); letter-spacing: 0.01em; cursor: pointer; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1), color 140ms cubic-bezier(0.16,1,0.3,1), transform 140ms cubic-bezier(0.16,1,0.3,1); } .ds-plaque::before { content: ''; position: absolute; inset: 3px; border: 1.5px solid var(--border, rgba(244,246,243,0.92)); border-radius: 3px; pointer-events: none; } .ds-plaque svg { width: 1em; height: 1em; flex: 0 0 auto; } .ds-plaque:hover { background: #0a5f34; } .ds-plaque:active { transform: translateY(1px); } .ds-plaque[disabled] { opacity: 0.55; cursor: default; } .ds-plaque:focus-visible { outline: 3px solid var(--yellow, #ffcd00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Plaque, white (primary action)",
+      "kind": "button",
+      "refersTo": "plaque-white",
+      "description": "Retroreflective white plaque with Ink text and line; the one primary action on a panel (Add a note, Done, Enter, Retry).",
+      "html": "<button class=\"ds-plaque-white\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 20l4.5-1 10-10-3.5-3.5-10 10z\"/><path d=\"M13.5 7l3.5 3.5\"/></svg> Add a note</button>",
+      "css": ".ds-plaque-white { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 0; border-radius: var(--radius-sm, 6px); background: var(--white, #f4f6f3); color: var(--ink, #121417); font: 700 1rem/1 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); letter-spacing: 0.01em; cursor: pointer; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1), transform 140ms cubic-bezier(0.16,1,0.3,1); } .ds-plaque-white::before { content: ''; position: absolute; inset: 3px; border: 1.5px solid var(--ink, #121417); border-radius: 3px; pointer-events: none; } .ds-plaque-white svg { width: 1em; height: 1em; } .ds-plaque-white:hover { background: #ffffff; } .ds-plaque-white:active { transform: translateY(1px); } .ds-plaque-white:focus-visible { outline: 3px solid var(--yellow, #ffcd00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Plaque, yellow (attention)",
+      "kind": "chip",
+      "refersTo": "plaque-yellow",
+      "description": "The only yellow surface: a 24px badge announcing a change from the other phone.",
+      "html": "<span class=\"ds-plaque-yellow\">Other phone</span>",
+      "css": ".ds-plaque-yellow { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 24px; padding: 0 8px; border-radius: var(--radius-sm, 6px); background: var(--yellow, #ffcd00); color: var(--ink, #121417); font: 700 0.75rem/1 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); letter-spacing: 0.04em; text-transform: uppercase; } .ds-plaque-yellow::before { content: ''; position: absolute; inset: 2px; border: 1px solid var(--ink, #121417); border-radius: 3px; pointer-events: none; }"
+    },
+    {
+      "name": "Exit tabs",
+      "kind": "nav",
+      "refersTo": "exit-tab",
+      "description": "Small states and DC as a row of plaques; fill follows the mark (blank, blue, red, white).",
+      "html": "<div class=\"ds-tabs\" role=\"group\" aria-label=\"Small states and DC\"><button class=\"ds-tab ds-tab--white\" aria-label=\"Vermont: Both\">VT</button><button class=\"ds-tab\" aria-label=\"New Hampshire: Nobody yet\">NH</button><button class=\"ds-tab ds-tab--red\" aria-label=\"Rhode Island: Riley\">RI</button><button class=\"ds-tab ds-tab--blue\" aria-label=\"New Jersey: Aaron\">NJ</button></div>",
+      "css": ".ds-tabs { display: flex; gap: 6px; } .ds-tab { position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 56px; min-height: 38px; padding: 0 10px; border: 0; border-radius: var(--radius-sm, 6px); background: var(--blank, #1e2328); color: var(--text, #f4f6f3); font: 800 0.9375rem/1 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); letter-spacing: 0.03em; cursor: pointer; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1), transform 140ms cubic-bezier(0.16,1,0.3,1); } .ds-tab::before { content: ''; position: absolute; inset: 3px; border: 1.5px solid var(--blank-border, #5c656d); border-radius: 3px; pointer-events: none; } .ds-tab--blue { background: var(--blue, #003f87); } .ds-tab--red { background: var(--red, #af1e2d); } .ds-tab--blue::before, .ds-tab--red::before { border-color: var(--border, rgba(244,246,243,0.92)); } .ds-tab--white { background: var(--white, #f4f6f3); color: var(--ink, #121417); } .ds-tab--white::before { border-color: var(--ink, #121417); } .ds-tab:hover { filter: brightness(1.12); } .ds-tab:active { transform: translateY(1px); filter: brightness(0.9); } .ds-tab:focus-visible { outline: 3px solid var(--yellow, #ffcd00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Toggle (welcome sheet)",
+      "kind": "button",
+      "refersTo": "toggle",
+      "description": "Per-person toggle on the welcome sheet: a 52px plaque that fills Interstate blue or red when pressed, with an 18px mark box.",
+      "html": "<div class=\"ds-toggles\"><button class=\"ds-toggle ds-toggle--aaron\" aria-pressed=\"true\">Aaron <span class=\"ds-toggle__mark\"></span></button><button class=\"ds-toggle ds-toggle--riley\" aria-pressed=\"false\">Riley <span class=\"ds-toggle__mark\"></span></button></div>",
+      "css": ".ds-toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 420px; } .ds-toggle { position: relative; display: inline-flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 52px; padding: 0 14px 0 16px; border: 0; border-radius: var(--radius-sm, 6px); background: var(--green-deep, #085430); color: var(--green-text, #f4f6f3); font: 700 1.0625rem/1 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); letter-spacing: 0.01em; cursor: pointer; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1), transform 140ms cubic-bezier(0.16,1,0.3,1); } .ds-toggle::before { content: ''; position: absolute; inset: 3px; border: 1.5px solid var(--border, rgba(244,246,243,0.92)); border-radius: 3px; pointer-events: none; } .ds-toggle__mark { position: relative; width: 18px; height: 18px; border-radius: 3px; border: 2px solid var(--border, rgba(244,246,243,0.92)); background: transparent; } .ds-toggle[aria-pressed='true'] .ds-toggle__mark { background: var(--white, #f4f6f3); border-color: var(--white, #f4f6f3); } .ds-toggle[aria-pressed='true'] .ds-toggle__mark::after { content: ''; position: absolute; inset: 4px; border-radius: 1px; background: var(--ink, #121417); } .ds-toggle--aaron[aria-pressed='true'] { background: var(--blue, #003f87); } .ds-toggle--riley[aria-pressed='true'] { background: var(--red, #af1e2d); } .ds-toggle:hover { background: #0a5f34; } .ds-toggle--aaron[aria-pressed='true']:hover { background: var(--blue, #003f87); filter: brightness(1.12); } .ds-toggle--riley[aria-pressed='true']:hover { background: var(--red, #af1e2d); filter: brightness(1.12); } .ds-toggle:active { transform: translateY(1px); } .ds-toggle:focus-visible { outline: 3px solid var(--yellow, #ffcd00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Note field",
+      "kind": "input",
+      "refersTo": "textarea-note",
+      "description": "White field with a drawn inset Ink ring, a Green Dim label, and a tabular character counter.",
+      "html": "<div class=\"ds-note\"><label class=\"ds-note__label\" for=\"ds-note\"><span>Note</span><output>0/140</output></label><textarea id=\"ds-note\" class=\"ds-note__field\" rows=\"2\" maxlength=\"140\" placeholder=\"The trip, the year, the diner…\"></textarea></div>",
+      "css": ".ds-note { display: grid; gap: 6px; max-width: 420px; padding: 16px; background: var(--green, #0b6b3a); border-radius: var(--radius, 10px); font-family: var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); font-variant-numeric: tabular-nums; } .ds-note__label { display: flex; justify-content: space-between; align-items: baseline; color: var(--green-dim, #cfe8d9); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.02em; } .ds-note__label output { font-weight: 600; } .ds-note__field { width: 100%; min-height: 72px; resize: none; padding: 10px 12px; border: 0; border-radius: var(--radius-sm, 6px); background: var(--white, #f4f6f3); color: var(--ink, #121417); box-shadow: inset 0 0 0 3px var(--white, #f4f6f3), inset 0 0 0 4.5px var(--ink, #121417); font: 600 1.0625rem/1.35 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); caret-color: var(--yellow, #ffcd00); } .ds-note__field::placeholder { color: #6b7378; font-weight: 500; } .ds-note__field:focus-visible { outline: 3px solid var(--yellow, #ffcd00); outline-offset: 2px; }"
+    },
+    {
+      "name": "Login field with error",
+      "kind": "input",
+      "refersTo": "input-login",
+      "description": "56px masked text field, white Enter plaque, and the red error plaque beneath.",
+      "html": "<form class=\"ds-login\"><label class=\"ds-login__label\" for=\"ds-pw\">Group password</label><div class=\"ds-login__row\"><input id=\"ds-pw\" class=\"ds-login__input\" type=\"text\" autocomplete=\"off\" value=\"\" /><button class=\"ds-login__enter\" type=\"button\">Enter <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15\"/><path d=\"M13 6l6 6-6 6\"/></svg></button></div><div class=\"ds-login__error\" role=\"alert\">Wrong way. That's not the password.</div></form>",
+      "css": ".ds-login { display: grid; gap: 8px; max-width: 440px; padding: 20px; background: var(--green, #0b6b3a); color: var(--green-text, #f4f6f3); border-radius: var(--radius, 10px); font-family: var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); } .ds-login__label { color: var(--green-dim, #cfe8d9); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.02em; } .ds-login__row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; } .ds-login__input { width: 100%; min-height: 56px; padding: 0 14px; border: 0; border-radius: var(--radius-sm, 6px); background: var(--white, #f4f6f3); color: var(--ink, #121417); box-shadow: inset 0 0 0 3px var(--white, #f4f6f3), inset 0 0 0 4.5px var(--ink, #121417); font: 700 1.25rem/1 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); letter-spacing: 0.04em; -webkit-text-security: disc; caret-color: var(--yellow, #ffcd00); } .ds-login__input:focus-visible { outline: 3px solid var(--yellow, #ffcd00); outline-offset: 3px; } .ds-login__enter { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 56px; padding: 0 18px; border: 0; border-radius: var(--radius-sm, 6px); background: var(--white, #f4f6f3); color: var(--ink, #121417); font: 700 1.0625rem/1 var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); cursor: pointer; } .ds-login__enter::before { content: ''; position: absolute; inset: 3px; border: 1.5px solid var(--ink, #121417); border-radius: 3px; pointer-events: none; } .ds-login__enter svg { width: 1em; height: 1em; } .ds-login__enter:hover { background: #ffffff; } .ds-login__enter:active { transform: translateY(1px); } .ds-login__error { position: relative; display: flex; align-items: center; min-height: 48px; padding: 0 14px; border-radius: var(--radius-sm, 6px); background: var(--red, #af1e2d); color: var(--green-text, #f4f6f3); font-size: 0.9375rem; font-weight: 700; } .ds-login__error::before { content: ''; position: absolute; inset: 3px; border: 1.5px solid var(--border, rgba(244,246,243,0.92)); border-radius: 3px; pointer-events: none; }"
+    },
+    {
+      "name": "Legend row",
+      "kind": "custom",
+      "refersTo": "swatch",
+      "description": "Guide-sign legend: mark swatch, name, tabular count with 'of 51'.",
+      "html": "<ul class=\"ds-legend\"><li class=\"ds-legend__row\"><span class=\"ds-swatch ds-swatch--blue\"></span><span>Aaron</span><span class=\"ds-count\">11 <small>of 51</small></span></li><li class=\"ds-legend__row\"><span class=\"ds-swatch ds-swatch--red\"></span><span>Riley</span><span class=\"ds-count\">11 <small>of 51</small></span></li><li class=\"ds-legend__row\"><span class=\"ds-swatch ds-swatch--white\"></span><span>Both</span><span class=\"ds-count\">6 <small>of 51</small></span></li><li class=\"ds-legend__row\"><span class=\"ds-swatch\"></span><span>Nobody yet</span><span class=\"ds-count\">23 <small>of 51</small></span></li></ul>",
+      "css": ".ds-legend { list-style: none; margin: 0; padding: 16px 20px; display: grid; gap: 6px; max-width: 320px; background: var(--green, #0b6b3a); color: var(--green-text, #f4f6f3); border-radius: var(--radius, 10px); font-family: var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); font-variant-numeric: tabular-nums; } .ds-legend__row { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; min-height: 40px; font-size: 1.125rem; font-weight: 700; } .ds-swatch { position: relative; width: 28px; height: 28px; border-radius: 4px; background: var(--blank, #1e2328); } .ds-swatch::before { content: ''; position: absolute; inset: 2px; border: 1.5px solid var(--border, rgba(244,246,243,0.92)); border-radius: 2px; } .ds-swatch--blue { background: var(--blue, #003f87); } .ds-swatch--red { background: var(--red, #af1e2d); } .ds-swatch--white { background: var(--white, #f4f6f3); } .ds-swatch--white::before { border-color: var(--ink, #121417); } .ds-count { display: inline-flex; align-items: baseline; gap: 5px; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1; } .ds-count small { font-size: 0.8125rem; font-weight: 600; color: var(--green-dim, #cfe8d9); }"
+    },
+    {
+      "name": "Map state",
+      "kind": "custom",
+      "refersTo": "state-blank",
+      "description": "A state shape as a sign: fill, inset clipped edge stroke, and the sheeting wipe overlay. Four marks shown.",
+      "html": "<svg class=\"ds-map\" viewBox=\"0 0 400 90\" aria-label=\"Four state marks\"><defs><clipPath id=\"ds-c0\"><rect x=\"10\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/></clipPath><clipPath id=\"ds-c1\"><rect x=\"110\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/></clipPath><clipPath id=\"ds-c2\"><rect x=\"210\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/></clipPath><clipPath id=\"ds-c3\"><rect x=\"310\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/></clipPath></defs><g class=\"ds-state\" data-mark=\"0\"><rect class=\"ds-state__fill\" x=\"10\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/><rect class=\"ds-state__edge\" x=\"10\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\" clip-path=\"url(#ds-c0)\"/><text class=\"ds-state__label\" x=\"50\" y=\"45\">MT</text></g><g class=\"ds-state\" data-mark=\"1\"><rect class=\"ds-state__fill\" x=\"110\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/><rect class=\"ds-state__edge\" x=\"110\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\" clip-path=\"url(#ds-c1)\"/><text class=\"ds-state__label\" x=\"150\" y=\"45\">WA</text></g><g class=\"ds-state\" data-mark=\"2\"><rect class=\"ds-state__fill\" x=\"210\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/><rect class=\"ds-state__edge\" x=\"210\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\" clip-path=\"url(#ds-c2)\"/><text class=\"ds-state__label\" x=\"250\" y=\"45\">OH</text></g><g class=\"ds-state\" data-mark=\"3\"><rect class=\"ds-state__fill\" x=\"310\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\"/><rect class=\"ds-state__edge\" x=\"310\" y=\"10\" width=\"80\" height=\"70\" rx=\"4\" clip-path=\"url(#ds-c3)\"/><text class=\"ds-state__label\" x=\"350\" y=\"45\">AZ</text></g></svg>",
+      "css": ".ds-map { display: block; width: 100%; max-width: 400px; background: var(--asphalt, #121417); border-radius: 10px; font-family: var(--font, Overpass, 'Helvetica Neue', Arial, sans-serif); } .ds-state { cursor: pointer; } .ds-state__fill { fill: var(--blank, #1e2328); stroke: var(--asphalt, #121417); stroke-width: 2; transition: fill 140ms cubic-bezier(0.16,1,0.3,1); } .ds-state__edge { fill: none; stroke: var(--blank-border, #5c656d); stroke-width: 2.5; pointer-events: none; transition: stroke 140ms cubic-bezier(0.16,1,0.3,1); } .ds-state[data-mark='1'] .ds-state__fill { fill: var(--blue, #003f87); } .ds-state[data-mark='2'] .ds-state__fill { fill: var(--red, #af1e2d); } .ds-state[data-mark='3'] .ds-state__fill { fill: var(--white, #f4f6f3); } .ds-state[data-mark='1'] .ds-state__edge, .ds-state[data-mark='2'] .ds-state__edge { stroke: var(--border, rgba(244,246,243,0.92)); stroke-width: 4; } .ds-state[data-mark='3'] .ds-state__edge { stroke: var(--ink, #121417); stroke-width: 4; } .ds-state__label { font-weight: 700; font-size: 15px; letter-spacing: 0.02em; text-anchor: middle; dominant-baseline: central; fill: var(--blank-label, #9aa4ad); pointer-events: none; } .ds-state[data-mark='1'] .ds-state__label, .ds-state[data-mark='2'] .ds-state__label { fill: var(--white, #f4f6f3); } .ds-state[data-mark='3'] .ds-state__label { fill: var(--ink, #121417); } .ds-state:hover .ds-state__fill { filter: brightness(1.12); } .ds-state:active .ds-state__fill { filter: brightness(0.9); } .ds-state:focus-visible .ds-state__fill { stroke: var(--yellow, #ffcd00); stroke-width: 4; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Road",
+    "overview": "Every surface is a US highway sign seen from a dark road: Highway green guide signs for chrome, sign blanks for anything not yet lit, Interstate blue and Interstate red as the two people's colors, and flat retroreflective white for the one state that matters most, \"both.\" The world is FHWA/MUTCD signage, not a dashboard: no stat cards, no paper-map pastels, no glow. Light comes from the sheeting (a solid fill and a white border line), never from the air around it.\n\nDensity is high and phone-first. Panels sit on the asphalt with 10px to 14px gutters, controls are rectangular plaques with 44px minimum height, and the map runs edge to edge. Everything that can be a sign is a sign: the legend, the last-tapped strip, the notes list, the welcome sheet, the login card, the exit tabs, even the state shapes themselves (a fill with an inset border line, exactly like the panels). One typeface in mixed case carries all copy; numerals are tabular everywhere.\n\nConfirmed rejections: bloom and neon glow; shield shapes for the two person colors; imitations of any real state's welcome sign; glyph icon fonts and raster imagery (the build ships only authored SVG).",
+    "keyCharacteristics": [
+      "Night asphalt ground with sign-green panels; depth is tonal, not shadowed.",
+      "One recurring anatomy: solid panel, inset 2px retroreflective border line, rounded corners.",
+      "Four marks, four flat fills: blank, Interstate blue, Interstate red, retroreflective white.",
+      "Highway yellow is reserved: the \"Other phone\" plaque, focus ring, caret, selection, accent-color.",
+      "Overpass only, weights 500 to 800, tabular numerals, tightened tracking above 1.25rem.",
+      "Motion is brief and literal: a 360ms sheeting wipe on change, a 220ms sheet rise, instant under reduced motion."
+    ],
+    "rules": [
+      { "name": "The Colors-Only Rule", "body": "Interstate blue and Interstate red are fills. No shield outlines, no route numbers, no badge silhouettes; the color is the whole reference.", "section": "colors" },
+      { "name": "The Yellow Ration Rule", "body": "Highway yellow appears for attention and focus only: the remote-change plaque, focus ring, caret, selection, accent-color. If a resting surface is yellow, it is wrong.", "section": "colors" },
+      { "name": "The Both-Is-White Rule", "body": "\"Both\" is flat retroreflective white with an Ink inset border. It is the brightest thing on the map by contrast alone; it gets no glow, gradient, or pattern.", "section": "colors" },
+      { "name": "The One Face Rule", "body": "Overpass at 500 to 800 is the entire type system. New surfaces pick a step from the ramp above; they do not add a serif, a mono, or a display face.", "section": "typography" },
+      { "name": "The Tabular Count Rule", "body": "Numbers that can change (counts, character counters, relative times) inherit tabular numerals and never reflow their neighbors.", "section": "typography" },
+      { "name": "The No-Bloom Rule", "body": "No outer shadows, no blur, no halo on any surface or state. Light is a flat fill and a white line; focus is a hard 3px yellow outline at 3px offset.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do build every new container as a sign: solid fill, 10px radius, the 2px Retro Border line inset 6px via ::before.",
+      "Do make every control a plaque (6px radius, 44px minimum height, 1.5px inset line) and reserve the white plaque for the one primary action on a panel.",
+      "Do keep the four marks as flat fills (Sign Blank, Interstate Blue, Interstate Red, Retro White) with the matching inset line (Blank Border, Retro Border, Retro Border, Ink).",
+      "Do set all copy in Overpass 500 to 800, mixed case, with tabular numerals; tighten tracking at 1.25rem and above.",
+      "Do keep blanks legible on asphalt: Sign Blank fill with a Blank Border line, Blank Label text, checked at 390px.",
+      "Do use Highway Yellow for focus (3px outline, 3px offset) and remote-change attention only.",
+      "Do keep motion literal and short: 140ms ease-out for control states, 220ms for the sheet, 360ms for the sheeting wipe, and collapse all of it under prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't add bloom, neon glow, outer shadows, or blur to any state, panel, or control.",
+      "Don't draw Interstate shield shapes, route numbers, or badge silhouettes; blue and red are colors only.",
+      "Don't imitate a real state's welcome sign; the sheet is one generic template with the state name swapped in.",
+      "Don't fill a state, a panel, or a resting control with Highway Yellow.",
+      "Don't introduce a second typeface, icon fonts, or raster imagery; icons are authored stroke SVGs at 1em.",
+      "Don't use pills, circles, or cut corners for controls; the system is rounded rectangles with a following inner line."
+    ]
+  }
+}
