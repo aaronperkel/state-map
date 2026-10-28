@@ -47,16 +47,22 @@ export function LoginForm() {
         Group password
       </label>
       <div className="login__row">
+        {/* A masked text field, not type=password, so Apple Passwords and other
+            managers don't offer to fill or save a shared group word. */}
         <input
           id="pw"
           className="login__input"
-          type="password"
-          name="password"
-          autoComplete="current-password"
+          type="text"
+          name="group-word"
+          inputMode="text"
+          autoComplete="off"
           autoCapitalize="none"
           autoCorrect="off"
           spellCheck={false}
           enterKeyHint="go"
+          data-1p-ignore
+          data-lpignore="true"
+          data-bwignore
           autoFocus
           value={password}
           aria-invalid={state === "wrong"}

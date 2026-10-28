@@ -8,6 +8,7 @@ import { UsMap } from "./UsMap";
 import { ExitTabs } from "./ExitTabs";
 import { LastTapped, type StripEvent } from "./LastTapped";
 import { WelcomeSheet } from "./WelcomeSheet";
+import { NotesList } from "./NotesList";
 
 export function MapApp() {
   const store = useMapStore();
@@ -94,6 +95,7 @@ export function MapApp() {
         onLongPress={hold}
       />
       <ExitTabs states={store.states} onTap={tap} onLongPress={hold} />
+      <NotesList states={store.states} onOpen={setOpen} />
       <LastTapped
         event={event}
         status={store.status}

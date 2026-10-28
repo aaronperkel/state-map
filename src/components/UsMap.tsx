@@ -28,14 +28,18 @@ const LABEL_OFFSET: Record<string, [number, number]> = {
   HI: [-8, -6],
   AK: [-10, -20],
   WV: [4, 4],
+  WA: [6, 8],
+  SC: [2, 2],
+  IN: [0, 6],
 };
 
 /** The exit tabs carry these; a label on the shape would collide with its neighbors. */
 const NO_LABEL = new Set(["MD", "DE", "NJ", "CT", "RI", "MA", "NH", "VT", "DC"]);
 
-function labelClass(abbr: string, w: number): string | null {
+function labelClass(abbr: string, w: number, lit: boolean): string | null {
   if (NO_LABEL.has(abbr)) return null;
-  if (w >= 125) return "state__label";
+  if (w >= 95) return "state__label";
+  if (w >= 55 && lit) return "state__label state__label--lit";
   if (w >= 40) return "state__label state__label--md";
   return null;
 }
@@ -92,10 +96,10 @@ export const UsMap = memo(function UsMap({ states, busy, changed, onTap, onLongP
         <g className="labels" aria-hidden="true">
           {STATES.map((s) => {
             const w = s.bbox[2] - s.bbox[0];
-            const lc = labelClass(s.abbr, w);
-            if (!lc) return null;
             const entry = states[s.abbr];
             const mark = entry?.mark ?? 0;
+            const lc = labelClass(s.abbr, w, mark > 0);
+            if (!lc) return null;
             const [dx, dy] = LABEL_OFFSET[s.abbr] ?? [0, 0];
             const lx = s.cx + dx;
             const ly = s.cy + dy;

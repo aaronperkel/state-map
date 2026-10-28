@@ -195,22 +195,23 @@ a {
 .app {
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto 1fr auto;
   gap: 10px;
   padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
 }
-.app > .strip {
-  align-self: end;
+.app > .notes {
+  align-self: stretch;
 }
 
 @media (min-width: 900px) {
   .app {
     grid-template-columns: 320px minmax(0, 1fr);
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
       "sign map"
       "strip map"
-      "strip tabs";
+      "notes map"
+      "notes tabs";
     gap: 14px;
     padding: 14px;
     align-items: start;
@@ -230,6 +231,89 @@ a {
     grid-area: strip;
     align-self: start;
   }
+  .app > .notes {
+    grid-area: notes;
+    align-self: stretch;
+  }
+}
+
+/* ───────────────────────── Notes panel ───────────────────────── */
+.notes {
+  padding: 12px 16px 12px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+  align-content: start;
+  min-height: 0;
+}
+.notes__title {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 1.0625rem;
+  font-weight: 800;
+}
+.notes__count {
+  color: var(--green-dim);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.notes__empty {
+  margin: 0;
+  color: var(--green-dim);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+.notes__empty strong {
+  color: var(--green-text);
+}
+.notes__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  overflow-y: auto;
+  max-height: 32dvh;
+}
+@media (min-width: 900px) {
+  .notes__list {
+    max-height: none;
+  }
+}
+.notes__item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 18px auto 1fr;
+  align-items: baseline;
+  column-gap: 10px;
+  padding: 8px 8px;
+  margin: 0 -8px;
+  width: calc(100% + 16px);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  color: var(--green-text);
+  font-weight: 600;
+  transition: background-color var(--t-fast) var(--ease-out);
+}
+.notes__item:hover {
+  background: var(--green-deep);
+}
+.notes__item .strip__swatch {
+  align-self: center;
+}
+.notes__state {
+  font-weight: 800;
+  white-space: nowrap;
+}
+.notes__text {
+  color: var(--green-dim);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* ───────────────────────── Guide sign (legend + counts) ───────────────────────── */
@@ -471,8 +555,12 @@ a {
 .state__label--md {
   display: none;
 }
+.state__label--lit {
+  font-size: 19px;
+}
 @media (min-width: 700px) {
-  .state__label {
+  .state__label,
+  .state__label--lit {
     font-size: 15px;
   }
   .state__label--md {
@@ -522,7 +610,7 @@ rect.state__note {
 }
 .tab {
   min-width: 48px;
-  min-height: 40px;
+  min-height: 38px;
   padding: 0 10px;
   font-size: 0.9375rem;
   font-weight: 800;
@@ -644,11 +732,11 @@ rect.state__note {
   white-space: nowrap;
 }
 @media (min-width: 900px) {
-  .strip {
+  .strip--remote {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  .strip__action {
+  .strip--remote .strip__action {
     justify-self: start;
   }
 }
@@ -861,6 +949,7 @@ rect.state__note {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+  -webkit-text-security: disc;
 }
 .login__input::placeholder {
   color: #6b7378;

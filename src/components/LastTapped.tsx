@@ -90,7 +90,11 @@ export function LastTapped({ event, status, error, anyLit, onOpen, onRetry }: Pr
   const { mark, note } = event.entry;
 
   return (
-    <footer className="sign strip" role="status" aria-live="polite">
+    <footer
+      className={`sign strip${event.source === "remote" ? " strip--remote" : ""}`}
+      role="status"
+      aria-live="polite"
+    >
       <div className="strip__main">
         <div className="strip__state">
           <span>{name}</span>
