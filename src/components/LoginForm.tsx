@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "./Icons";
 
@@ -8,6 +8,18 @@ export function LoginForm() {
   const [password, setPassword] = useState("");
   const [state, setState] = useState<"idle" | "checking" | "wrong" | "offline">("idle");
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // CSS masking (-webkit-text-security) is WebKit/Blink only. Where it is
+  // unsupported (Firefox), fall back to a real password field so the word is
+  // never shown in cleartext; those browsers have no Apple Passwords prompt.
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    const masked =
+      typeof CSS !== "undefined" && CSS.supports?.("-webkit-text-security", "disc");
+    if (!masked) el.type = "password";
+  }, []);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -50,6 +62,7 @@ export function LoginForm() {
         {/* A masked text field, not type=password, so Apple Passwords and other
             managers don't offer to fill or save a shared group word. */}
         <input
+          ref={inputRef}
           id="pw"
           className="login__input"
           type="text"
