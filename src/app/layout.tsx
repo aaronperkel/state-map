@@ -10,7 +10,7 @@ const overpass = Overpass({
 });
 
 export const metadata: Metadata = {
-  title: "Aaron & Riley's States",
+  title: "Aaron & Riley: States we've been to",
   description: "One shared map of the states Aaron and Riley have been to.",
   robots: { index: false, follow: false },
 };

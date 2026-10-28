@@ -4,7 +4,7 @@ import { STATE_BY_ABBR } from "@/lib/states";
 import { markLabel, type MapData } from "@/lib/marks";
 import { usePress } from "@/lib/use-press";
 
-export const SMALL_STATES = ["MA", "NH", "VT", "CT", "RI", "NJ", "DE", "MD", "DC"] as const;
+export const SMALL_STATES = ["VT", "NH", "MA", "CT", "RI", "NJ", "DE", "MD", "DC"] as const;
 
 const plaqueFor = (mark: number) =>
   mark === 1 ? "plaque--blue" : mark === 2 ? "plaque--red" : mark === 3 ? "plaque--white" : "plaque--blank";

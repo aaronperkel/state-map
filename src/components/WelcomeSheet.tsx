@@ -72,8 +72,8 @@ export function WelcomeSheet({ abbr, entry, onClose, onPatch }: Props) {
     >
       {state && (
         <div className="sign sheet__panel">
-          <p className="sheet__welcome">Welcome to</p>
           <h2 id="sheet-name" className="sheet__name">
+            <span className="sheet__welcome">Welcome to</span>
             {state.name}
           </h2>
 

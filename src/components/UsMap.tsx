@@ -20,7 +20,7 @@ const LABEL_OFFSET: Record<string, [number, number]> = {
   MI: [18, 36],
   ID: [-6, 30],
   MD: [10, 8],
-  NY: [-14, 4],
+  NY: [-30, 8],
   MA: [-4, -2],
   VA: [10, 0],
   NC: [6, 0],
@@ -35,7 +35,7 @@ const NO_LABEL = new Set(["MD", "DE", "NJ", "CT", "RI", "MA", "NH", "VT", "DC"])
 
 function labelClass(abbr: string, w: number): string | null {
   if (NO_LABEL.has(abbr)) return null;
-  if (w >= 70) return "state__label";
+  if (w >= 125) return "state__label";
   if (w >= 40) return "state__label state__label--md";
   return null;
 }

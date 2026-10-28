@@ -40,8 +40,8 @@ export function LoginForm() {
 
   return (
     <form className="sign login__sign" onSubmit={submit} noValidate>
-      <h1 className="login__title">Aaron &amp; Riley&rsquo;s States</h1>
-      <p className="login__sub">One map, two travelers. Say the word to get on the road.</p>
+      <h1 className="login__title">Aaron &amp; Riley</h1>
+      <p className="login__sub">States we&rsquo;ve been to. Say the word to get on the road.</p>
 
       <label className="login__label" htmlFor="pw">
         Group password

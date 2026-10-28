@@ -106,9 +106,7 @@ export function LastTapped({ event, status, error, anyLit, onOpen, onRetry }: Pr
               .map((part, i) => (
                 <span key={i}>
                   {i > 0 && (
-                    <span className="strip__sep" aria-hidden="true">
-                      ·
-                    </span>
+                    <span className="strip__sep" aria-hidden="true" />
                   )}
                   {part}
                 </span>

@@ -195,12 +195,12 @@ a {
 .app {
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: auto auto auto 1fr;
   gap: 10px;
   padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
 }
-.app > .map-wrap {
-  align-self: center;
+.app > .strip {
+  align-self: end;
 }
 
 @media (min-width: 900px) {
@@ -375,7 +375,6 @@ a {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 60dvh;
   overflow: visible;
   touch-action: manipulation;
   -webkit-touch-callout: none;
@@ -509,10 +508,17 @@ rect.state__note {
 
 /* ───────────────────────── Exit tabs (small states + DC) ───────────────────────── */
 .tabs {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
   gap: 6px;
-  justify-content: flex-end;
+  justify-content: end;
+}
+@media (min-width: 900px) {
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 }
 .tab {
   min-width: 48px;
@@ -599,7 +605,12 @@ rect.state__note {
 }
 .strip__sep {
   display: inline-block;
-  margin: 0 0.45em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: middle;
+  margin: 0 0.5em 0.1em;
 }
 .strip__from {
   flex: 0 0 auto;
@@ -631,6 +642,15 @@ rect.state__note {
 }
 .strip__action {
   white-space: nowrap;
+}
+@media (min-width: 900px) {
+  .strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .strip__action {
+    justify-self: start;
+  }
 }
 
 /* ───────────────────────── Welcome sign (detail sheet) ───────────────────────── */
@@ -687,15 +707,15 @@ rect.state__note {
   }
 }
 .sheet__welcome {
-  margin: 0;
-  color: var(--green-dim);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  margin-bottom: 2px;
 }
 .sheet__name {
-  margin: -6px 0 0;
+  margin: 0;
   font-size: clamp(2rem, 9vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -766,7 +786,7 @@ rect.state__note {
 .sheet__textarea {
   width: 100%;
   min-height: 72px;
-  resize: vertical;
+  resize: none;
   padding: 10px 12px;
   border-radius: var(--radius-sm);
   background: var(--white);
