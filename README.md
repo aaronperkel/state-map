@@ -1,6 +1,6 @@
 # State Map
 
-One shared map of the United States for Aaron and Riley. Tap a state to cycle who has been there (nobody → Aaron → Riley → both), hold a state for a short note. Both phones see the same map.
+One shared map of the United States for Aaron and Riley. Tap a state to cycle who has been there (nobody → Aaron → Riley → both, on separate trips → together), hold a state for a short note. Aaron is blue, Riley is red, both is the two colors striped, together is purple. Both phones see the same map.
 
 ## Stack
 

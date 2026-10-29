@@ -7,6 +7,13 @@ import { counts } from "@/lib/marks";
 import { STATE_ABBRS } from "@/lib/states";
 import { ArrowRight } from "./Icons";
 
+const ROWS = [
+  { key: "aaron", swatch: "guide__swatch--blue", label: "Aaron" },
+  { key: "riley", swatch: "guide__swatch--red", label: "Riley" },
+  { key: "both", swatch: "guide__swatch--hatch", label: "Both" },
+  { key: "together", swatch: "guide__swatch--purple", label: "Together" },
+] as const;
+
 export function GuideSign({ states, ready }: { states: MapData; ready: boolean }) {
   const c = counts(states);
   const total = STATE_ABBRS.length;
@@ -39,27 +46,15 @@ export function GuideSign({ states, ready }: { states: MapData; ready: boolean }
       </div>
 
       <ul className="guide__rows">
-        <li className="guide__row">
-          <span className="guide__swatch guide__swatch--blue" aria-hidden="true" />
-          <span>Aaron</span>
-          <span className="guide__count">
-            {n(c.aaron)} <small>of {total}</small>
-          </span>
-        </li>
-        <li className="guide__row">
-          <span className="guide__swatch guide__swatch--red" aria-hidden="true" />
-          <span>Riley</span>
-          <span className="guide__count">
-            {n(c.riley)} <small>of {total}</small>
-          </span>
-        </li>
-        <li className="guide__row">
-          <span className="guide__swatch guide__swatch--white" aria-hidden="true" />
-          <span>Both</span>
-          <span className="guide__count">
-            {n(c.both)} <small>of {total}</small>
-          </span>
-        </li>
+        {ROWS.map((row) => (
+          <li key={row.key} className="guide__row">
+            <span className={`guide__swatch ${row.swatch}`} aria-hidden="true" />
+            <span className="guide__name">{row.label}</span>
+            <span className="guide__count">
+              {n(c[row.key])} <small>of {total}</small>
+            </span>
+          </li>
+        ))}
       </ul>
 
       <div className="guide__rule" aria-hidden="true" />

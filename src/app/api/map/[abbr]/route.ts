@@ -22,7 +22,7 @@ export async function PATCH(
 
   const patch: { mark?: Mark; note?: string } = {};
   if (body.mark !== undefined) {
-    if (!isMark(body.mark)) return NextResponse.json({ error: "mark must be 0-3" }, { status: 400 });
+    if (!isMark(body.mark)) return NextResponse.json({ error: "mark must be 0, 1, 2, 3, or 7" }, { status: 400 });
     patch.mark = body.mark;
   }
   if (body.note !== undefined) {

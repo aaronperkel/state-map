@@ -4,7 +4,12 @@ import { mkdirSync } from "node:fs";
 const BASE = process.env.BASE ?? "http://localhost:3111";
 const OUT = process.env.OUT ?? ".impeccable/review";
 const PW = process.env.GROUP_PASSWORD;
-const exe = "/Users/aaron/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell";
+import { existsSync, readdirSync } from "node:fs";
+import { homedir } from "node:os";
+const cache = `${homedir()}/Library/Caches/ms-playwright`;
+const shell = readdirSync(cache).filter((d) => d.startsWith("chromium_headless_shell-")).sort().at(-1);
+const exe = `${cache}/${shell}/chrome-headless-shell-mac-arm64/chrome-headless-shell`;
+if (!existsSync(exe)) throw new Error("no Playwright chromium headless shell in " + cache);
 mkdirSync(OUT, { recursive: true });
 
 const browser = await chromium.launch({ executablePath: exe, headless: true });
@@ -45,7 +50,7 @@ const api = async (c, abbr, body) => (await c.request.patch(`${BASE}/api/map/${a
   await p.screenshot({ path: `${OUT}/mobile-empty.png`, fullPage: true });
 
   // seed demo marks (synthetic, reset at end)
-  for (const [a, m, n] of [["TX", 1, ""], ["CA", 2, ""], ["VT", 3, "Burlington, forever"], ["NY", 3, ""], ["FL", 1, ""], ["CO", 2, "Ski trip 2025"], ["WA", 1, ""], ["MA", 3, ""], ["GA", 2, ""], ["AZ", 3, ""], ["OH", 2, ""], ["PA", 1, ""], ["IL", 3, "Chicago, deep dish"], ["RI", 2, ""], ["DC", 3, ""]]) {
+  for (const [a, m, n] of [["TX", 1, ""], ["CA", 2, ""], ["VT", 7, "Burlington, forever"], ["NY", 3, ""], ["FL", 1, ""], ["CO", 2, "Ski trip 2025"], ["WA", 1, ""], ["MA", 3, ""], ["GA", 2, ""], ["AZ", 7, ""], ["OH", 2, ""], ["PA", 1, ""], ["IL", 3, "Chicago, deep dish"], ["RI", 2, ""], ["DC", 7, ""]]) {
     await api(c, a, { mark: m, note: n });
   }
   await p.reload();

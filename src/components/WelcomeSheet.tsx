@@ -2,7 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import { STATE_BY_ABBR } from "@/lib/states";
-import { AARON, RILEY, NOTE_MAX, has, toggleBit, type Mark, type StateEntry } from "@/lib/marks";
+import {
+  AARON,
+  RILEY,
+  TOGETHER,
+  NOTE_MAX,
+  has,
+  toggleBit,
+  type Mark,
+  type StateEntry,
+} from "@/lib/marks";
 import { Close } from "./Icons";
 
 type Props = {
@@ -11,6 +20,29 @@ type Props = {
   onClose: () => void;
   onPatch: (abbr: string, change: { mark?: Mark; note?: string }) => Promise<boolean>;
 };
+
+function Status({ mark }: { mark: Mark }) {
+  if (mark === 7) {
+    return (
+      <>
+        You&rsquo;ve been here <strong>together</strong>.
+      </>
+    );
+  }
+  if (mark === 3) {
+    return (
+      <>
+        <strong>Both of you</strong> have been here, on separate trips.
+      </>
+    );
+  }
+  if (mark === 0) return <>Nobody yet.</>;
+  return (
+    <>
+      Just <strong>{mark === 1 ? "Aaron" : "Riley"}</strong> so far.
+    </>
+  );
+}
 
 export function WelcomeSheet({ abbr, entry, onClose, onPatch }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -96,19 +128,18 @@ export function WelcomeSheet({ abbr, entry, onClose, onPatch }: Props) {
               Riley
               <span className="toggle__mark" aria-hidden="true" />
             </button>
+            <button
+              type="button"
+              className="plaque toggle toggle--together"
+              aria-pressed={has(mark, TOGETHER)}
+              onClick={() => void onPatch(state.abbr, { mark: toggleBit(mark, TOGETHER) })}
+            >
+              Together
+              <span className="toggle__mark" aria-hidden="true" />
+            </button>
           </div>
           <p className="sheet__both" aria-live="polite">
-            {mark === 3 ? (
-              <>
-                <strong>Both of you</strong> have been here.
-              </>
-            ) : mark === 0 ? (
-              <>Nobody yet.</>
-            ) : (
-              <>
-                Just <strong>{mark === 1 ? "Aaron" : "Riley"}</strong> so far.
-              </>
-            )}
+            <Status mark={mark} />
           </p>
 
           <div className="sheet__note">

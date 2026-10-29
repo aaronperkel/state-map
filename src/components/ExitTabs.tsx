@@ -1,13 +1,18 @@
 "use client";
 
 import { STATE_BY_ABBR } from "@/lib/states";
-import { markLabel, type MapData } from "@/lib/marks";
+import { markLabel, type Mark, type MapData } from "@/lib/marks";
 import { usePress } from "@/lib/use-press";
 
 export const SMALL_STATES = ["VT", "NH", "MA", "CT", "RI", "NJ", "DE", "MD", "DC"] as const;
 
-const plaqueFor = (mark: number) =>
-  mark === 1 ? "plaque--blue" : mark === 2 ? "plaque--red" : mark === 3 ? "plaque--white" : "plaque--blank";
+const PLAQUE: Record<Mark, string> = {
+  0: "plaque--blank",
+  1: "plaque--blue",
+  2: "plaque--red",
+  3: "plaque--hatch",
+  7: "plaque--purple",
+};
 
 type Props = {
   states: MapData;
@@ -27,7 +32,7 @@ export function ExitTabs({ states, onTap, onLongPress }: Props) {
             key={abbr}
             type="button"
             data-abbr={abbr}
-            className={`plaque tab ${plaqueFor(mark)} ${pressed === abbr ? "tab--pressed" : ""}`}
+            className={`plaque tab ${PLAQUE[mark]} ${pressed === abbr ? "tab--pressed" : ""}`}
             aria-label={`${name}: ${markLabel(mark)}`}
             aria-keyshortcuts="Enter Space Shift+Enter"
           >

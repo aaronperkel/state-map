@@ -15,6 +15,7 @@
 
   --blue: #003f87;
   --red: #af1e2d;
+  --purple: #6b2f9b;
   --white: #f4f6f3;
   --yellow: #ffcd00;
   --ink: #121417;
@@ -150,8 +151,10 @@ a {
   border-radius: 3px;
   pointer-events: none;
 }
-.plaque:hover {
-  background: #0a5f34;
+/* Hover brightens whatever the plaque's fill is, so colored and striped
+   variants keep their color instead of turning sign-green. */
+.plaque:not([disabled]):hover {
+  filter: brightness(1.1);
 }
 .plaque:active {
   transform: translateY(1px);
@@ -167,14 +170,17 @@ a {
 .plaque--white::before {
   border-color: var(--ink);
 }
-.plaque--white:hover {
-  background: #ffffff;
-}
 .plaque--blue {
   background: var(--blue);
 }
 .plaque--red {
   background: var(--red);
+}
+.plaque--purple {
+  background: var(--purple);
+}
+.plaque--hatch {
+  --hatch-w: 7px;
 }
 .plaque--yellow {
   background: var(--yellow);
@@ -351,8 +357,8 @@ a {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 12px;
 }
 .guide__row {
   display: grid;
@@ -413,11 +419,11 @@ a {
 .guide__swatch--red {
   background: var(--red);
 }
-.guide__swatch--white {
-  background: var(--white);
+.guide__swatch--purple {
+  background: var(--purple);
 }
-.guide__swatch--white::before {
-  border-color: var(--ink);
+.guide__swatch--hatch {
+  --hatch-w: 5px;
 }
 .guide__count {
   display: inline-flex;
@@ -509,16 +515,29 @@ a {
 .state[data-mark="2"] .state__fill {
   fill: var(--red);
 }
+/* stripes: the wider pattern on phones, where the map is scaled to ~0.4 */
 .state[data-mark="3"] .state__fill {
-  fill: var(--white);
+  fill: url(#hatch-lg);
+}
+@media (min-width: 700px) {
+  .state[data-mark="3"] .state__fill {
+    fill: url(#hatch);
+  }
+}
+.state[data-mark="7"] .state__fill {
+  fill: var(--purple);
+}
+.hatch__a {
+  fill: var(--blue);
+}
+.hatch__b {
+  fill: var(--red);
 }
 .state[data-mark="1"] .state__edge,
-.state[data-mark="2"] .state__edge {
+.state[data-mark="2"] .state__edge,
+.state[data-mark="3"] .state__edge,
+.state[data-mark="7"] .state__edge {
   stroke: var(--border);
-  stroke-width: 4;
-}
-.state[data-mark="3"] .state__edge {
-  stroke: var(--ink);
   stroke-width: 4;
 }
 .state:hover .state__fill {
@@ -543,12 +562,8 @@ a {
   letter-spacing: 0.02em;
   user-select: none;
 }
-.label[data-mark="1"] .state__label,
-.label[data-mark="2"] .state__label {
+.label:not([data-mark="0"]) .state__label {
   fill: var(--white);
-}
-.label[data-mark="3"] .state__label {
-  fill: var(--ink);
 }
 .labels {
   pointer-events: none;
@@ -617,7 +632,7 @@ rect.state__note {
   font-weight: 800;
   letter-spacing: 0.03em;
 }
-.tab--pressed {
+.plaque.tab--pressed {
   transform: translateY(1px);
   filter: brightness(0.9);
 }
@@ -673,10 +688,10 @@ rect.state__note {
   background: var(--red);
 }
 .strip__swatch[data-mark="3"] {
-  background: var(--white);
+  --hatch-w: 4px;
 }
-.strip__swatch[data-mark="3"]::before {
-  border-color: var(--ink);
+.strip__swatch[data-mark="7"] {
+  background: var(--purple);
 }
 .strip__meta {
   display: flex;
@@ -847,6 +862,12 @@ rect.state__note {
 .toggle--riley[aria-pressed="true"] {
   background: var(--red);
 }
+.toggle--together {
+  grid-column: 1 / -1;
+}
+.toggle--together[aria-pressed="true"] {
+  background: var(--purple);
+}
 .sheet__both {
   margin: -6px 0 0;
   font-size: 0.9375rem;
@@ -976,6 +997,20 @@ rect.state__note {
 }
 .login__error[hidden] {
   display: none;
+}
+
+/* ───────────────────────── Stripes ─────────────────────────
+   "Both" is the two person colors in diagonal stripes, on every surface that
+   shows a mark. --hatch-w is one stripe's width; each element sets its own.
+   Kept after the swatch and plaque rules so it wins at equal specificity. */
+.plaque--hatch,
+.guide__swatch--hatch,
+.strip__swatch[data-mark="3"] {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--blue) 0 var(--hatch-w, 6px),
+    var(--red) var(--hatch-w, 6px) calc(var(--hatch-w, 6px) * 2)
+  );
 }
 
 /* ───────────────────────── Utilities ───────────────────────── */

@@ -15,17 +15,18 @@ type Props = {
 
 /** Centroid nudges (viewBox px) where the geometric centroid lands in water or a panhandle. */
 const LABEL_OFFSET: Record<string, [number, number]> = {
-  FL: [22, 22],
-  LA: [-22, 8],
+  FL: [24, 26],
+  LA: [2, 8],
   MI: [18, 36],
   ID: [-6, 30],
   MD: [10, 8],
-  NY: [-30, 8],
+  NY: [-28, -2],
   MA: [-4, -2],
   VA: [10, 0],
   NC: [6, 0],
   KY: [8, 0],
   HI: [-8, -6],
+  ME: [-5, 12],
   AK: [-10, -20],
   WV: [4, 4],
   WA: [6, 8],
@@ -38,11 +39,21 @@ const NO_LABEL = new Set(["MD", "DE", "NJ", "CT", "RI", "MA", "NH", "VT", "DC"])
 
 function labelClass(abbr: string, w: number, lit: boolean): string | null {
   if (NO_LABEL.has(abbr)) return null;
-  if (w >= 95) return "state__label";
+  if (w >= 88) return "state__label";
   if (w >= 55 && lit) return "state__label state__label--lit";
   if (w >= 40) return "state__label state__label--md";
   return null;
 }
+
+/**
+ * Diagonal stripes for "both": the period is in viewBox units, so a phone
+ * (map scaled to ~0.4) gets the wider one and desktop the tighter one.
+ * The stylesheet picks which by viewport width.
+ */
+const HATCH = [
+  { id: "hatch", period: 16 },
+  { id: "hatch-lg", period: 28 },
+] as const;
 
 export const UsMap = memo(function UsMap({ states, busy, changed, onTap, onLongPress }: Props) {
   const { pressed, handlers } = usePress({ onTap, onLongPress });
@@ -58,6 +69,19 @@ export const UsMap = memo(function UsMap({ states, busy, changed, onTap, onLongP
         {...handlers}
       >
         <defs>
+          {HATCH.map(({ id, period }) => (
+            <pattern
+              key={id}
+              id={id}
+              patternUnits="userSpaceOnUse"
+              width={period}
+              height={period}
+              patternTransform="rotate(45)"
+            >
+              <rect className="hatch__a" width={period / 2} height={period} />
+              <rect className="hatch__b" x={period / 2} width={period / 2} height={period} />
+            </pattern>
+          ))}
           {STATES.map((s) => (
             <clipPath key={s.abbr} id={`clip-${s.abbr}`}>
               <path d={s.d} />
