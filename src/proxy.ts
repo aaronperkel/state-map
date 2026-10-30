@@ -25,5 +25,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|icon.*|apple-icon.*|manifest.*|robots.txt).*)"],
+  matcher: [
+    // Everything except static assets and the files browsers and link-preview
+    // crawlers fetch without a session: icons, the manifest, the social images.
+    "/((?!_next/static|_next/image|favicon.ico|icon.*|apple-icon.*|manifest.*|robots.txt|opengraph-image.*|twitter-image.*).*)",
+  ],
 };

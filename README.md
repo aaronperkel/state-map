@@ -19,6 +19,8 @@ npm run dev
 
 `npm run build:states` regenerates `src/lib/states.ts` from `us-atlas` (AlbersUSA, 975×610).
 
+`npx tsx scripts/brand.ts` regenerates the icon set (`src/app/icon.svg`, `favicon.ico`, `apple-icon.png`, `public/icon-192.png`, `public/icon-512.png`) and the social images (`src/app/opengraph-image.png`, `twitter-image.png`) from the palette and the map geometry. The map on the social image is decorative, not anyone's data.
+
 `GROUP_PASSWORD=… node scripts/shoot.mjs` screenshots the login, the map (phone and desktop), the state sheet, and the share card into `.impeccable/review/` against `http://localhost:3111`. It snapshots the live map first and puts it back when it finishes; demo marks are seeded only when the map is empty.
 
 ## Environment
