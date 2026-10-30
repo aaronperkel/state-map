@@ -1,5 +1,5 @@
 import { STATES, VIEW_H, VIEW_W, type StateShape } from "@/lib/states";
-import { counts, type MapData, type Mark } from "@/lib/marks";
+import { counts, STATE_TOTAL, type MapData, type Mark } from "@/lib/marks";
 import { PALETTE, markFill } from "@/lib/palette";
 import { SMALL_STATES, labelPos, labelTier } from "@/lib/map-labels";
 
@@ -194,7 +194,7 @@ export async function renderCard(states: MapData, fontFamily: string): Promise<B
   ctx.textBaseline = "alphabetic";
   ctx.fillStyle = PALETTE.muted;
   ctx.font = font(700, 32);
-  ctx.fillText(`${c.any} of ${STATES.length} states`, cx, 1600);
+  ctx.fillText(`${c.any} of ${STATE_TOTAL} states${c.dc ? " + DC" : ""}`, cx, 1600);
 
   return new Promise<Blob>((resolve, reject) => {
     canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("toBlob failed"))), "image/png");

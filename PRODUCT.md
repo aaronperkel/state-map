@@ -34,7 +34,7 @@ It is theirs, not a template: two named people, one shared map, no accounts, no 
 - Coverage: 50 states plus the District of Columbia (DC shown as a chip, not a map shape). No territories.
 - Mark is a bitmask: 1 = Aaron, 2 = Riley, 4 = together (implies both), so the valid values are 0 = nobody, 1 = Aaron, 2 = Riley, 3 = both on separate trips, 7 = together. Tapping a state on the map cycles 0 → 1 → 2 → 3 → 7 → 0. A per-state detail view offers three toggles (Aaron, Riley, Together) and the note; turning Together on brings both people with it, and turning a person off drops Together.
 - Note: one free-text field per state, max 140 characters. Notes are edited in the per-state sheet only; the main screen shows a small dot on a noted state and nothing else.
-- Share: a 1080×1920 PNG (Instagram story) with the title, the map, the small-state chips, the four-color legend with counts, and "N of 51 states". Rendered on the device; offered through the system share sheet where files can be shared (iOS, Android, Chrome), with a plain download everywhere.
+- Share: a 1080×1920 PNG (Instagram story) with the title, the map, the small-state chips, the four-color legend with counts, and "N of 50 states", with "+ DC" when DC is marked. DC is on the map and in the chips but is never counted as a state. Rendered on the device; offered through the system share sheet where files can be shared (iOS, Android, Chrome), with a plain download everywhere.
 - Auth: single shared password held in the `GROUP_PASSWORD` environment variable; never stored in the repo or docs. Signed, long-lived cookie after login.
 - Storage: one Redis hash of 51 entries plus a version counter used for cheap change polling.
 - Display title: "Aaron & Riley". Custom domain: none for now.

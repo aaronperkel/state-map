@@ -146,7 +146,7 @@ A cream page and a map you color in with two soft crayons. The map is the only b
 
 Copy is rationed. The main screen says only: the title, four legend words with counts, nine chip abbreviations, and "Sign out". Notes live in the per-state sheet; a noted state shows a small dot. Changes from the other phone just animate on the map.
 
-The share card is the same system at 1080×1920: cream ground, the map with ink labels, the chip row, a 2×2 legend with counts, and "N of 51 states". It is drawn on a canvas from the same palette constants the CSS uses.
+The share card is the same system at 1080×1920: cream ground, the map with ink labels, the chip row, a 2×2 legend with counts, and "N of 50 states" (plus "+ DC" when DC is marked). It is drawn on a canvas from the same palette constants the CSS uses.
 
 **Key Characteristics:**
 - Cream ground, warm-gray "puzzle piece" states separated by cream, flat pastel marks.
@@ -160,7 +160,7 @@ Tokens are defined once in `src/lib/palette.ts` and written onto `<html>` as `--
 
 - **Background** (`bg`): the page, the card ground, and the stroke between states.
 - **Surface / Surface 2** (`surface`, `surface2`): white cards and the share button; beige for inputs, unvisited chips, the default button, and the "Both" legend pill.
-- **Ink / Muted** (`ink`, `muted`): all text; muted for sublines, labels, "Sign out", and counts' "of 51".
+- **Ink / Muted** (`ink`, `muted`): all text; muted for sublines, labels, "Sign out", and the "N of 50 states" line.
 - **Line**: hairline rings on beige controls.
 - **Empty / Empty label**: an unvisited state and its abbreviation.
 - **Aaron** (sky blue), **Riley** (coral), **Together** (lavender): the three solid marks. Each has a tint for unpressed sheet toggles and legend pills.

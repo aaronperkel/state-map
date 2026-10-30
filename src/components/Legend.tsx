@@ -1,5 +1,4 @@
-import { counts, type MapData } from "@/lib/marks";
-import { STATE_ABBRS } from "@/lib/states";
+import { counts, STATE_TOTAL, type MapData } from "@/lib/marks";
 
 const ROWS = [
   { key: "aaron", cls: "legend__item--aaron", label: "Aaron" },
@@ -11,7 +10,6 @@ const ROWS = [
 /** Four pills: swatch, name, count. The only legend on screen. */
 export function Legend({ states, ready }: { states: MapData; ready: boolean }) {
   const c = counts(states);
-  const total = STATE_ABBRS.length;
   return (
     <ul className="legend" aria-label="Legend and counts">
       {ROWS.map((row) => (
@@ -20,7 +18,7 @@ export function Legend({ states, ready }: { states: MapData; ready: boolean }) {
           <span className="legend__name">{row.label}</span>
           <span className="legend__count">
             {ready ? c[row.key] : "–"}
-            <span className="sr-only"> of {total}</span>
+            <span className="sr-only"> of {STATE_TOTAL} states</span>
           </span>
         </li>
       ))}

@@ -72,19 +72,25 @@ export function emptyEntry(): StateEntry {
   return { mark: 0, note: "", updatedAt: 0 };
 }
 
+/** DC is on the map but is not a state; counts leave it out and report it on its own. */
+export const DC = "DC";
+export const STATE_TOTAL = 50;
+
 /**
- * Legend counts. Each row counts every state where that is true, so
- * Aaron ⊇ Both ⊇ Together: a state lit "together" counts for all four.
+ * Legend counts over the 50 states (DC excluded). Each row counts every
+ * state where that is true, so Aaron ⊇ Both ⊇ Together: a state lit
+ * "together" counts for all four. `dc` is DC's own mark.
  */
 export function counts(data: MapData) {
   let aaron = 0, riley = 0, both = 0, together = 0, any = 0;
-  for (const e of Object.values(data)) {
-    if (!e.mark) continue;
+  for (const [abbr, e] of Object.entries(data)) {
+    if (abbr === DC || !e.mark) continue;
     any++;
     if (has(e.mark, AARON)) aaron++;
     if (has(e.mark, RILEY)) riley++;
     if (has(e.mark, AARON) && has(e.mark, RILEY)) both++;
     if (has(e.mark, TOGETHER)) together++;
   }
-  return { aaron, riley, both, together, any };
+  const dc: Mark = data[DC]?.mark ?? 0;
+  return { aaron, riley, both, together, any, dc };
 }
