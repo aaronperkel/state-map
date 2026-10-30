@@ -1,13 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Overpass } from "next/font/google";
+import { nunito } from "./fonts";
+import { PALETTE, cssVars } from "@/lib/palette";
 import "./globals.css";
-
-const overpass = Overpass({
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-overpass",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Aaron & Riley: States we've been to",
@@ -19,12 +13,13 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#121417",
+  themeColor: PALETTE.bg,
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={overpass.variable}>
+    <html lang="en" className={nunito.variable} style={cssVars() as React.CSSProperties}>
       <body>{children}</body>
     </html>
   );

@@ -9,36 +9,33 @@ related_targets: ["src/app/login/page.tsx"]
 
 ## Scope and mode
 
-Operate. One screen: a shared US map Aaron and Riley tap to mark states, plus a login gate. Phone-first (390px), also desktop (1440px). Dark, single theme.
+Operate. One screen: a shared US map Aaron and Riley tap to mark states, plus a login gate and a share dialog. Phone-first (390px), also desktop (1440px). Light, single theme.
 
 ## Audience, job, action
 
-Two people passing a phone on a couch or in a car. Job: mark a state for Aaron, Riley, or both in one tap, add an optional 140-character note, and see the other person's changes arrive. Success: the map is true and worth showing someone.
+Two people passing a phone on a couch or in a car. Job: mark a state for Aaron, Riley, or both in one tap, add an optional 140-character note, see the other person's changes arrive, and share the map as a story image. Success: the map is true and worth showing someone.
 
-## Constraints (user-pinned in the direction round)
+## Constraints (user-pinned in the redesign round, 2026-10-30)
 
-- No bloom or neon glow. "Both" is flat retroreflective white inside the sign border.
-- One generic welcome-sign template for the detail sheet; never imitate a real state's welcome sign.
-- Interstate blue and Interstate red are colors only; no shield shapes.
-- The LAST TAPPED strip also announces changes arriving via sync from the other device.
-- Unlit state blanks must stay legible against the asphalt ground at 390px.
-- Font: Overpass (Highway Gothic lineage).
+- Light only. No dark mode, no `prefers-color-scheme` branch.
+- "Cute" and very simple: the map is the hero; no panels of copy around it. Only the title, legend words with counts, chip abbreviations, and "Sign out" are on the main screen.
+- Soft pastels: cream page, sky blue for Aaron, coral for Riley, lavender for together, the two person colors striped for both.
+- Nunito throughout.
+- Share as a 1080×1920 image with the legend; no square variant.
 - Password value never appears in code, docs, or copy.
 
 ## Direction contract
 
-THESIS: Every state is a road sign at night and the two of you light them up. Refuses the colored-paper-map tracker and the white dashboard with stat cards.
+THESIS: A soft, friendly map you color in together and can post as-is. Refuses the dark dashboard and the highway-sign world of the first build.
 
-OWN-WORLD: Night asphalt ground (#121417). FHWA sign anatomy everywhere: panels with a rounded corner radius, an inset white retroreflective border line, Highway green (#0B6B3A) for guide-sign chrome, Interstate blue (#003F87) for Aaron, Interstate red (#AF1E2D) for Riley, flat retroreflective white (#F4F6F3) for both, highway yellow (#FFCD00) only for the current-sync/attention plaque. Unlit states are dark sign blanks (#1E2328 fill, #5C656D 1px border) that stay readable on the asphalt. Overpass throughout, mixed case, tabular numerals, letter-spacing tightened at display sizes. Controls are plaques: rectangular sign tabs with the border line, pressed state inverts to white-on-color. Motion: a short sheeting wipe when a state changes (120 to 180ms), sheet slides up like a sign coming into view; reduced motion keeps instant swaps.
+OWN-WORLD: Cream ground (#FFF8F0). Unvisited states are warm gray puzzle pieces separated by cream; marks are flat pastels with ink labels. Pills for every control, 16px cards for the sheet and dialogs, one soft shadow. Nunito 600–900, tabular numerals. Motion: a 240ms pop and a soft wipe on the changed state, a 220ms sheet rise; instant under reduced motion.
 
-STORY: You land on a dark highway with one overhead green guide sign listing Aaron, Riley, Both with counts. You tap Vermont; it fills blue; tap again, red; again, white. The strip at the bottom reads "Vermont · Both" with "Add a note". When Riley marks Ohio from their phone, the strip says "Ohio · Riley, just now" and Ohio fills red. Long-press or the strip's button opens the "Welcome to Vermont" sign with two plaques (Aaron, Riley) and the note field.
+STORY: You open the page: title top-left, share button top-right, the map filling the width, nine chips for the small states, four legend pills with counts. You tap Vermont's chip; it fills blue; tap again, coral; again, stripes; again, lavender. Hold it and a white sheet rises: "Vermont", three pill toggles, a note field, Done. Tap share: a story card appears with the map and legend; Share opens the system sheet, Save downloads it.
 
-FIRST VIEWPORT: Phone: green guide sign across the top (title line "Aaron & Riley" small, then three destination rows with color swatch left, name, count right). Below, the map edge to edge, ~56% of the viewport height, AlbersUSA 975×610 viewBox. Under the map's east side, a single row of exit tabs for CT RI DE NJ MD MA NH VT DC. Bottom: the LAST TAPPED strip, full width, sign-green, safe-area padded. Primary action is the map itself. Desktop: the guide sign becomes a left column (320px) with the map filling the rest; strip docks under the sign.
+FIRST VIEWPORT: Phone: header row, the map edge to edge (~244px tall at 390), chips 5 + 4, legend 2 + 2, "Sign out" at the bottom. Desktop: the same column at 900px.
 
-FORM: US highway signage (FHWA/MUTCD), candidate 5 of 7 on the ordered list, assigned by seed key 96c0ef3c; raised by Star Atlas (fill carries the mark), Lexicon (color quarantined to map and legend), Airport Yellow (one message per band line), Dense Grid (no wasted pixels on phone).
-
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+FINISH: screenshots in `.impeccable/review/` from `scripts/shoot.mjs`; DESIGN.md and `.impeccable/design.json` describe the pastel system.
 
 ## Unresolved
 
-Display title (default "Aaron & Riley's States"). Whether long-press survives iOS testing; fallback is the strip's "Add a note" button only.
+Whether the long-press survives iOS testing with the pop animation; fallback is Shift+Enter and the chips. Share on a real phone (Instagram in the share sheet) is verified by Aaron, not in CI.

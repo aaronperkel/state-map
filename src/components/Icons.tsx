@@ -19,15 +19,6 @@ export function ArrowRight({ className = "icon" }: IconProps) {
   );
 }
 
-export function ArrowUp({ className = "icon" }: IconProps) {
-  return (
-    <svg {...base} className={className}>
-      <path d="M12 20V5" />
-      <path d="M6 11l6-6 6 6" />
-    </svg>
-  );
-}
-
 export function Close({ className = "icon" }: IconProps) {
   return (
     <svg {...base} className={className}>
@@ -37,11 +28,12 @@ export function Close({ className = "icon" }: IconProps) {
   );
 }
 
-export function Pencil({ className = "icon" }: IconProps) {
+export function Share({ className = "icon" }: IconProps) {
   return (
     <svg {...base} className={className}>
-      <path d="M4 20l4.5-1 10-10-3.5-3.5-10 10z" />
-      <path d="M13.5 7l3.5 3.5" />
+      <path d="M12 3v12" />
+      <path d="M8 7l4-4 4 4" />
+      <path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8" />
     </svg>
   );
 }

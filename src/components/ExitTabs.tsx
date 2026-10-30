@@ -2,16 +2,15 @@
 
 import { STATE_BY_ABBR } from "@/lib/states";
 import { markLabel, type Mark, type MapData } from "@/lib/marks";
+import { SMALL_STATES } from "@/lib/map-labels";
 import { usePress } from "@/lib/use-press";
 
-export const SMALL_STATES = ["VT", "NH", "MA", "CT", "RI", "NJ", "DE", "MD", "DC"] as const;
-
-const PLAQUE: Record<Mark, string> = {
-  0: "plaque--blank",
-  1: "plaque--blue",
-  2: "plaque--red",
-  3: "plaque--hatch",
-  7: "plaque--purple",
+const CHIP: Record<Mark, string> = {
+  0: "chip--empty",
+  1: "chip--aaron",
+  2: "chip--riley",
+  3: "chip--both",
+  7: "chip--together",
 };
 
 type Props = {
@@ -20,23 +19,26 @@ type Props = {
   onLongPress: (abbr: string) => void;
 };
 
+/** The small eastern states and DC as a row of chips under the map. */
 export function ExitTabs({ states, onTap, onLongPress }: Props) {
   const { pressed, handlers } = usePress({ onTap, onLongPress });
   return (
-    <div className="tabs" role="group" aria-label="Small states and DC" {...handlers}>
+    <div className="chips" role="group" aria-label="Small states and DC" {...handlers}>
       {SMALL_STATES.map((abbr) => {
-        const mark = states[abbr]?.mark ?? 0;
+        const entry = states[abbr];
+        const mark = entry?.mark ?? 0;
         const name = STATE_BY_ABBR[abbr].name;
         return (
           <button
             key={abbr}
             type="button"
             data-abbr={abbr}
-            className={`plaque tab ${PLAQUE[mark]} ${pressed === abbr ? "tab--pressed" : ""}`}
-            aria-label={`${name}: ${markLabel(mark)}`}
+            className={`chip ${CHIP[mark]}${pressed === abbr ? " chip--pressed" : ""}`}
+            aria-label={`${name}: ${markLabel(mark)}${entry?.note ? ", has a note" : ""}`}
             aria-keyshortcuts="Enter Space Shift+Enter"
           >
             {abbr}
+            {entry?.note && <span className="chip__note" aria-hidden="true" />}
           </button>
         );
       })}

@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Next.js 16 (App Router, TypeScript) on Vercel, personal scope `aaronperkel`. Shared storage is Upstash for Redis provisioned through the Vercel Marketplace. Plain CSS with custom-property tokens; no component library. Recommended by Claude, accepted by Aaron.
+Next.js 16 (App Router, TypeScript) on Vercel, personal scope `aaronperkel`. Shared storage is Upstash for Redis provisioned through the Vercel Marketplace. Plain CSS with custom-property tokens sourced from one TypeScript palette; no component library. The share card is drawn client-side on a canvas. Recommended by Claude, accepted by Aaron.
 
 ## Users
 
@@ -20,7 +20,7 @@ A single private map of the United States that both people edit. Tapping a state
 
 ## Positioning
 
-It is theirs, not a template: two named people, one shared map, no accounts, no feed, no sharing features. A generic "visited states" tracker is single-player or asks each person to register; this one treats the couple as the unit and makes "together" a first-class color, distinct from "both of us, separately."
+It is theirs, not a template: two named people, one shared map, no accounts, no feed. The one outward-facing feature is a share button that renders the map and its legend to a story-sized image, so the map can be posted or sent without giving anyone the link. A generic "visited states" tracker is single-player or asks each person to register; this one treats the couple as the unit and makes "together" a first-class color, distinct from "both of us, separately."
 
 ## Operating Context
 
@@ -33,14 +33,15 @@ It is theirs, not a template: two named people, one shared map, no accounts, no 
 
 - Coverage: 50 states plus the District of Columbia (DC shown as a chip, not a map shape). No territories.
 - Mark is a bitmask: 1 = Aaron, 2 = Riley, 4 = together (implies both), so the valid values are 0 = nobody, 1 = Aaron, 2 = Riley, 3 = both on separate trips, 7 = together. Tapping a state on the map cycles 0 → 1 → 2 → 3 → 7 → 0. A per-state detail view offers three toggles (Aaron, Riley, Together) and the note; turning Together on brings both people with it, and turning a person off drops Together.
-- Note: one free-text field per state, max 140 characters.
+- Note: one free-text field per state, max 140 characters. Notes are edited in the per-state sheet only; the main screen shows a small dot on a noted state and nothing else.
+- Share: a 1080×1920 PNG (Instagram story) with the title, the map, the small-state chips, the four-color legend with counts, and "N of 51 states". Rendered on the device; offered through the system share sheet where files can be shared (iOS, Android, Chrome), with a plain download everywhere.
 - Auth: single shared password held in the `GROUP_PASSWORD` environment variable; never stored in the repo or docs. Signed, long-lived cookie after login.
 - Storage: one Redis hash of 51 entries plus a version counter used for cheap change polling.
-- Undecided: the site's display title (settled in design); custom domain (none for now).
+- Display title: "Aaron & Riley". Custom domain: none for now.
 
 ## Brand Commitments
 
-Names are "Aaron" and "Riley" exactly. No logo, typeface, or palette exists yet. Tone is personal and warm, never corporate; no gamification (badges, streaks, percent-complete nagging).
+Names are "Aaron" and "Riley" exactly. No logo. Typeface is Nunito; the palette is cream with sky blue (Aaron), coral (Riley), lavender (together) and the two person colors striped (both). Light only; there is no dark mode. Tone is personal and warm, never corporate; no gamification (badges, streaks, percent-complete nagging). The main screen carries almost no copy: the title, the legend words and counts, the chip abbreviations, and "Sign out".
 
 ## Evidence on Hand
 
@@ -52,7 +53,7 @@ None. There is no existing list of visited states; the map starts empty and the 
 2. "Together" is the point: the shared-trip color must read as the most special state on the map, and "both, separately" must read as exactly that: the two person colors, not a third one.
 3. Always current on both phones; never ask who you are.
 4. Small and finished over large and half-done: 51 entries, one note each, nothing more.
-5. Worth showing someone: the map should look good enough to hand your phone across the table.
+5. Worth showing someone: the map should look good enough to hand your phone across the table, or to post as-is.
 
 ## Accessibility & Inclusion
 

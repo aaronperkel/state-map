@@ -45,18 +45,18 @@ export function LoginForm() {
 
   const error =
     state === "wrong"
-      ? "Wrong way. That's not the password."
+      ? "That's not it. Try again."
       : state === "offline"
-        ? "Can't reach the road right now. Try again."
+        ? "Can't connect right now. Try again."
         : null;
 
   return (
-    <form className="sign login__sign" onSubmit={submit} noValidate>
+    <form className="card login__card" onSubmit={submit} noValidate>
       <h1 className="login__title">Aaron &amp; Riley</h1>
-      <p className="login__sub">States we&rsquo;ve been to. Say the word to get on the road.</p>
+      <p className="login__sub">States we&rsquo;ve been to.</p>
 
       <label className="login__label" htmlFor="pw">
-        Group password
+        Password
       </label>
       <div className="login__row">
         {/* A masked text field, not type=password, so Apple Passwords and other
@@ -64,7 +64,7 @@ export function LoginForm() {
         <input
           ref={inputRef}
           id="pw"
-          className="login__input"
+          className="input login__input"
           type="text"
           name="group-word"
           inputMode="text"
@@ -87,7 +87,7 @@ export function LoginForm() {
         />
         <button
           type="submit"
-          className="plaque plaque--white login__enter"
+          className="btn btn--primary login__enter"
           disabled={state === "checking" || !password.trim()}
         >
           {state === "checking" ? "Checking" : "Enter"}
@@ -95,12 +95,7 @@ export function LoginForm() {
         </button>
       </div>
 
-      <div
-        id="pw-error"
-        className="plaque plaque--red login__error"
-        role="alert"
-        hidden={!error}
-      >
+      <div id="pw-error" className="login__error" role="alert" hidden={!error}>
         {error}
       </div>
     </form>

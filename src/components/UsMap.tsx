@@ -3,6 +3,7 @@
 import { memo } from "react";
 import { STATES, VIEW_H, VIEW_W } from "@/lib/states";
 import { markLabel, type MapData } from "@/lib/marks";
+import { labelPos, labelTier, type LabelTier } from "@/lib/map-labels";
 import { usePress } from "@/lib/use-press";
 
 type Props = {
@@ -13,37 +14,11 @@ type Props = {
   onLongPress: (abbr: string) => void;
 };
 
-/** Centroid nudges (viewBox px) where the geometric centroid lands in water or a panhandle. */
-const LABEL_OFFSET: Record<string, [number, number]> = {
-  FL: [24, 26],
-  LA: [2, 8],
-  MI: [18, 36],
-  ID: [-6, 30],
-  MD: [10, 8],
-  NY: [-28, -2],
-  MA: [-4, -2],
-  VA: [10, 0],
-  NC: [6, 0],
-  KY: [8, 0],
-  HI: [-8, -6],
-  ME: [-5, 12],
-  AK: [-10, -20],
-  WV: [4, 4],
-  WA: [6, 8],
-  SC: [2, 2],
-  IN: [0, 6],
+const TIER_CLASS: Record<LabelTier, string> = {
+  lg: "state__label",
+  lit: "state__label state__label--lit",
+  md: "state__label state__label--md",
 };
-
-/** The exit tabs carry these; a label on the shape would collide with its neighbors. */
-const NO_LABEL = new Set(["MD", "DE", "NJ", "CT", "RI", "MA", "NH", "VT", "DC"]);
-
-function labelClass(abbr: string, w: number, lit: boolean): string | null {
-  if (NO_LABEL.has(abbr)) return null;
-  if (w >= 88) return "state__label";
-  if (w >= 55 && lit) return "state__label state__label--lit";
-  if (w >= 40) return "state__label state__label--md";
-  return null;
-}
 
 /**
  * Diagonal stripes for "both": the period is in viewBox units, so a phone
@@ -110,8 +85,6 @@ export const UsMap = memo(function UsMap({ states, busy, changed, onTap, onLongP
               aria-keyshortcuts="Enter Space Shift+Enter"
             >
               <path className="state__fill" d={s.d} />
-              <path className="state__edge" d={s.d} clipPath={`url(#clip-${s.abbr})`} />
-              <path className="state__gap" d={s.d} />
               <path className="state__wipe" d={s.d} clipPath={`url(#clip-${s.abbr})`} />
             </g>
           );
@@ -122,18 +95,21 @@ export const UsMap = memo(function UsMap({ states, busy, changed, onTap, onLongP
             const w = s.bbox[2] - s.bbox[0];
             const entry = states[s.abbr];
             const mark = entry?.mark ?? 0;
-            const lc = labelClass(s.abbr, w, mark > 0);
-            if (!lc) return null;
-            const [dx, dy] = LABEL_OFFSET[s.abbr] ?? [0, 0];
-            const lx = s.cx + dx;
-            const ly = s.cy + dy;
+            const tier = labelTier(s.abbr, w, mark > 0);
+            if (!tier) return null;
+            const [lx, ly] = labelPos(s);
             return (
               <g key={s.abbr} className="label" data-mark={mark}>
-                <text className={lc} x={lx} y={ly}>
+                <text className={TIER_CLASS[tier]} x={lx} y={ly}>
                   {s.abbr}
                 </text>
                 {entry?.note && (
-                  <rect className={`${lc} state__note`} x={lx - 7} y={ly + 10} width={14} height={2.5} rx={1} />
+                  <circle
+                    className={tier === "md" ? "state__note state__label--md" : "state__note"}
+                    cx={lx}
+                    cy={ly + 13}
+                    r={2.5}
+                  />
                 )}
               </g>
             );

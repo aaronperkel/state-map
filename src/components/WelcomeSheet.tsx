@@ -12,7 +12,6 @@ import {
   type Mark,
   type StateEntry,
 } from "@/lib/marks";
-import { Close } from "./Icons";
 
 type Props = {
   abbr: string | null;
@@ -103,16 +102,15 @@ export function WelcomeSheet({ abbr, entry, onClose, onPatch }: Props) {
       }}
     >
       {state && (
-        <div className="sign sheet__panel">
+        <div className="card sheet__panel">
           <h2 id="sheet-name" className="sheet__name">
-            <span className="sheet__welcome">Welcome to</span>
             {state.name}
           </h2>
 
           <div className="sheet__toggles" role="group" aria-label="Who has been here">
             <button
               type="button"
-              className="plaque toggle toggle--aaron"
+              className="toggle toggle--aaron"
               aria-pressed={has(mark, AARON)}
               onClick={() => void onPatch(state.abbr, { mark: toggleBit(mark, AARON) })}
             >
@@ -121,7 +119,7 @@ export function WelcomeSheet({ abbr, entry, onClose, onPatch }: Props) {
             </button>
             <button
               type="button"
-              className="plaque toggle toggle--riley"
+              className="toggle toggle--riley"
               aria-pressed={has(mark, RILEY)}
               onClick={() => void onPatch(state.abbr, { mark: toggleBit(mark, RILEY) })}
             >
@@ -130,7 +128,7 @@ export function WelcomeSheet({ abbr, entry, onClose, onPatch }: Props) {
             </button>
             <button
               type="button"
-              className="plaque toggle toggle--together"
+              className="toggle toggle--together"
               aria-pressed={has(mark, TOGETHER)}
               onClick={() => void onPatch(state.abbr, { mark: toggleBit(mark, TOGETHER) })}
             >
@@ -176,9 +174,8 @@ export function WelcomeSheet({ abbr, entry, onClose, onPatch }: Props) {
               {saving === "saved" && "Saved"}
               {saving === "failed" && "Couldn't save. Try again."}
             </span>
-            <button type="button" className="plaque plaque--white" onClick={() => void done()}>
+            <button type="button" className="btn btn--primary" onClick={() => void done()}>
               Done
-              <Close />
             </button>
           </div>
         </div>
